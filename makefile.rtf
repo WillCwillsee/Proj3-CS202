@@ -1,0 +1,23 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww13000\viewh10900\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 CXX = g++\
+CXX_FLAGS = -Wall -std=c++98\
+\
+all: proj3\
+\
+proj3: proj3.cpp menu.hpp my_string.hpp\
+	$(CXX) $(CXX_FLAGS) -o proj3 proj3.cpp menu.o my_string.o RentalCar.o\
+menu.o: menu.cpp menu.hpp Agency.hpp \
+	$(CXX) $(CXX_FLAGS) -c -o menu.o menu.cpp\
+RentalCar.o: RentalCar.cpp RentalCar.hpp\
+	$(CXX) $(CXX_FLAGS) -c -o RentalCar.o RentalCar.cpp\
+my_string.o:  my_string.cpp my_string.hpp\
+	$(CXX) $(CXX_FLAGS) -c -o my_string.o my_string.cpp\
+clean:\
+	rm -rf *.o proj3\
+}
